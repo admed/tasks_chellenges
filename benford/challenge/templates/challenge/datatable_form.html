@@ -1,0 +1,16 @@
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+Please wait for larger files it takes time to process and generate gprahs.
+
+<form action="/upload/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <br />
+    <input type="submit" value="Submit">
+</form>

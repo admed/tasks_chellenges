@@ -2,6 +2,7 @@ version: "3.3"
    
 services:
   migration:
+    build: .
     command: python /code/benford/manage.py migrate --noinput
     volumes:
       - .:/code

@@ -22,6 +22,6 @@ RUN set -ex && pip install --trusted-host pypi.org --trusted-host files.pythonho
 RUN set -ex && pipenv lock -r > req.txt && pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org -r req.txt
 
 # copy files
-COPY . /code/
+COPY ./benford/ /code/
 
 

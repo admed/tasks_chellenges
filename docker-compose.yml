@@ -3,12 +3,12 @@ version: "3.3"
 services:
   migration:
     build: .
-    command: python /code/benford/manage.py migrate --noinput
+    command: python manage.py migrate --noinput
     volumes:
       - .:/code
   web:
     build: .
-    command: python /code/benford/manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
     ports:

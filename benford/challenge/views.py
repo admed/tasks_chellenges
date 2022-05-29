@@ -18,9 +18,6 @@ numbers = range(1, 10)
 
 
 def chisq_stat(O, E):
-    for o, e in zip(O, E):
-        print("o", o)
-        print("e", e)
     return sum((o - e) ** 2 / e for (o, e) in zip(O, E))
 
 
@@ -47,7 +44,6 @@ class DataCreateView(CreateView):
                 messages.add_message(request, messages.ERROR, "File is invalid, check format or file structure")
                 return redirect("/upload/")
             leading_counts = value_counts[:9]
-            print("list\n", list(leading_counts))
             expected = [math.log10(1 + 1 / n) for n in numbers]
             chisqr = chisq_stat(leading_counts, expected)
             # save object
@@ -67,7 +63,6 @@ class DataCreateView(CreateView):
             # Make the plot
             plt.bar(br1, expected, color="g", width=barWidth, edgecolor="grey", label="Expected")
             calculated = [100 * num for num in list(leading_counts)]
-            print("calculated", calculated)
             plt.bar(br2, calculated, color="b", width=barWidth, edgecolor="grey", label="Observed")
 
             # Adding Xticks

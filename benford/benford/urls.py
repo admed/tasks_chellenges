@@ -15,13 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from challenge.views import DataCreateView, DataListView, DataDetailView
 
+from challenge.views import DataCreateView, DataDetailView, DataListView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', DataListView.as_view()),
-    path('upload/', DataCreateView.as_view()),
-    path('<int:pk>/', DataDetailView.as_view()),
-
+    path("admin/", admin.site.urls),
+    path("", DataListView.as_view()),
+    path("upload/", DataCreateView.as_view()),
+    path("<int:pk>/", DataDetailView.as_view()),
 ]

@@ -1,11 +1,14 @@
-import os
 import datetime
+import os
+
 from django.db import models
 from numpy import require
+
 
 def get_upload_path(instance, filename):
     today_date = datetime.datetime.today().date()
     return os.path.join("static/data_files", str(today_date), filename)
+
 
 # Create your models here.
 class DataTable(models.Model):
